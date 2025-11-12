@@ -12,7 +12,7 @@ import lombok.Setter;
 @Data
 public class Book {
     @Setter(AccessLevel.NONE)
-    private String uuid = UUID.randomUUID().toString();
+    private String uuid;
     private String title;
     private String author;
     private double price;
