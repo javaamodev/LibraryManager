@@ -17,34 +17,37 @@ public class Book {
     private String author;
     private double price;
     private int numberOfPages;
-    private int currentPages;
     private BookReadStatus readStatus;
 
-    public Book(String title, String author, double price, int numberOfPages, int currentPages, BookReadStatus readStatus) {
+    public Book(String title, String author, double price, int numberOfPages, BookReadStatus readStatus) {
         this.uuid = UUID.randomUUID().toString();
         this.title = title;
         this.author = author;
         this.price = price;
         this.numberOfPages = numberOfPages;
-        this.currentPages = currentPages;
         this.readStatus = readStatus;
     }
 
     public String getReadStatus() {
         if (this.readStatus == BookReadStatus.NOT_STARTED) {
-            return "Book has not been started";
+            return "Le livre n'a pas été commencé !";
         } else if (this.readStatus == BookReadStatus.STARTED) {
-            return "Book has been started";
+            return "Le livre à été commencé";
         } else {
-            return "Book has been finished";
+            return "Le livre à été terminé !";
         }
     }
 
     @Override
     public String toString() {
-        return "Title : " + this.title + 
-            ", Author : " + this.author + ", Price : " + this.price + ", Number Total of pages : " + 
-            numberOfPages + ", Current Pages Number : " + 
-            this.currentPages + ", Read Status : " + this.readStatus;
+        String bookDescription = "";
+        bookDescription += "================" + this.title + "=============== \n";
+        bookDescription += "Titre : " + this.title + "\n";
+        bookDescription += "Auteur : " + this.author + "\n";
+        bookDescription += "Prix : " + this.price + "\n";
+        bookDescription += "Nombre de pages : " + this.numberOfPages + "\n";
+        bookDescription += "Status de lecture : " + this.getReadStatus() + "\n"; 
+        bookDescription += "================================================= \n";
+        return bookDescription;
     }
 }
