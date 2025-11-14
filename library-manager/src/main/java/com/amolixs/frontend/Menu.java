@@ -54,6 +54,7 @@ public class Menu {
         } catch (InputMismatchException e) {
             System.out.println("Veuillez entrez un choix valide !");
         }
+        scanner.nextLine();
         return userChoice;
     }
 
@@ -74,6 +75,12 @@ public class Menu {
             case 5:
                 this.bookView.deleteABook();
                 break;
+            case 6:
+                System.out.println("Merci et à bientôt !");
+            break;
+            default:
+                System.out.println("Choix non valide !");
+            break;
         }
     }
 }
